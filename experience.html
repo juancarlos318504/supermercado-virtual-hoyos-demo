@@ -1,0 +1,48 @@
+<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Experiencia</title><script src="assets/js/aframe-imports.ef5a3f4338d15591ecb0.js"></script><script src="assets/js/experience.faa50353d560afc9129d.js"></script></head><body><div id="root-3D" style="position:absolute;width:100vw;height:100vh"><a-scene stats="false" embedded physics="driver: ammo; debug: false; debugDrawMode: 0;" keyboard-shortcuts="enterVR: false" vr-mode-ui="enabled: false;" light="defaultLightsEnabled: true" renderer="
+                antialias: true;
+                colorManagement: true;
+                sortObjects: true;
+                physicallyCorrectLights: false;
+                alpha: true;" networked-scene="
+                    room: 1;
+                    debug: true;
+                    adapter: janus;
+                    connectOnLoad: true;
+                    serverURL: wss://prod-janus.reticulum.io;
+                "><a-assets timeout="600000" id="aframe-assets"><a-asset-item id="model-asset-mall" response-type="arraybuffer" src="assets/media/Mall-8503732a205c5bb25daf..glb"></a-asset-item><a-asset-item id="model-asset-mall-colision" response-type="arraybuffer" src="assets/media/Mall_Collisions-e039fab96ba66f7a4e48..glb"></a-asset-item><a-asset-item id="model-asset-personaje-mujer" response-type="arraybuffer" src="assets/media/mujer_animaciones-136e43aeb99f1bb284d2..glb"></a-asset-item><a-asset-item id="model-asset-personaje-hombre" response-type="arraybuffer" src="assets/media/hombre_animaciones-2963395b1cd4e8c00d26..glb"></a-asset-item></a-assets><a-entity id="player-camera" camera="active: true; fov: 80; zoom: 1; far:100;" position="0 2 0" joystick orbit-controls="
+                    enablePan:false;
+                    enableKeys:false;
+                    autoRotate: false;
+                    target: #player-head;
+                    enableDamping: true;
+                    dampingFactor: 0.125;
+                    rotateSpeed:0.25;
+                    minPolarAngle:0.3;
+                    maxPolarAngle:1.7;
+                    minDistance:2;
+                    maxDistance:3;
+                    enableZoom:true;
+                    minZoom:-3;
+                    maxZoom:30;
+                    zoomSpeed:2;"></a-entity><a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="far: 10; objects: .clickable"></a-entity><a-sphere primitive="a-sphere" id="player-head" follow-entity="target: #player-entity; offsetY: 1.6" position="0 0 0" visible="false" color="yellow" radius=".2"></a-sphere><a-entity id="player-entity" ammo-body="
+                    type: dynamic; 
+                    linearDamping:0; 
+                    angularDamping:1; 
+                    angularFactor: 0 0 0; 
+                    activationState: disableDeactivation;
+                    emitCollisionEvents: false;" ammo-shape="
+                    type: capsule; 
+                    fit: manual; 
+                    halfExtents:.2 .6 .2; 
+                    offset:0 .8 0" movement-controls-super="
+                    speed:2.5; 
+                    camera:#player-camera;
+                    characterModel:#player-model;
+                    animationIdle:idle;
+                    animationWalking:walking" position="0 0.5 0"><a-entity id="player-model" position="0 0 0" scale="50 50 50" rotation="0 180 0" animation-mixer="clip:idle; crossFadeDuration:0.2"></a-entity></a-entity><a-entity id="mall-model" gltf-model="#model-asset-mall" mall-materials scale="50 50 50" rotation="0 40 0" position="0 0 0"><a-entity visible="false" load-glb-collision="
+                        model:#model-asset-mall-colision; 
+                        body:static; 
+                        shape:mesh"></a-entity><a-sphere id="teleporter-local-001" color="green" ammo-body="
+                        type: static; 
+                        emitCollisionEvents:true; 
+                        disableCollision:true" ammo-shape="type:sphere" local-teleporter="dataLocal:{}" rotation="0 45 0" position="-0.370 0 0.259" radius="0.03"></a-sphere></a-entity><a-plane id="suelo" visible="false" height="100" width="100" rotation="-90 0 0" ammo-body="type: static; " ammo-shape="type: box;"></a-plane></a-scene></div><div id="root"></div></body></html>
